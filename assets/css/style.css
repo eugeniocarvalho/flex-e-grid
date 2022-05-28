@@ -53,6 +53,7 @@ body {
     padding: 1rem 3.75rem;
     height: 80px;
     box-sizing: border-box;
+    grid-column: 2;
   }
 
   .cabecalho__menu, .cabecalho__logo {
@@ -158,6 +159,15 @@ body {
   content: "\e90a";
 }
 
+@media screen and (min-width: 1440px) {
+  .menu-lateral {
+    position: static;
+    width: 12.5rem;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+}
+
 .principal {
   padding: 1.5rem 1rem;
   display: grid;
@@ -172,6 +182,23 @@ body {
 .titulo-secao {
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+@media screen and (min-width: 1440px) {
+  .principal {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 
+      "titulo-pagina titulo-pagina titulo-pagina"
+      "destaque-video destaque-video videos-recentes"
+      "secao-videos secao-videos secao-videos"
+      "produtos-recentes destaque-produtos destaque-produtos"
+      "secao-produtos secao-produtos secao-produtos" 
+    ;
+    column-gap: 2rem;
+    padding: 1rem 3.75rem;
+    grid-column: 2;
+  }
 }
 
 .cartao {
@@ -247,7 +274,86 @@ body {
   grid-column: span 2;
 }
 
+.cartao--recentes {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .cartao--recentes {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    row-gap: 1.5rem;
+    width: 16rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .cartao--recentes .cartao__titulo {
+    grid-column: auto;
+  }
+
+  .cartao__link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0480DC;
+    justify-self: flex-end;
+  }
+
+  .cartao__lista {
+    display: grid;
+    row-gap: 1rem;
+    grid-column: span 2;
+  }
+
+  .cartao__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .5rem;
+  }
+
+  .cartao__item-thumbnail {
+    width: 2rem;
+    grid-row: span 2;
+  }
+  
+  .cartao__item-titulo {
+    font-size: .9rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+  }
+
+  .cartao__item-perfil {
+    font-size: .8rem;
+    color: #95999C;
+  }
+}
+
 .secao {
   display: grid;
   gap: 1rem;
+}
+
+.destaque-video {
+  grid-area: destaque-video;
+}
+
+.videos-recentes {
+  grid-area: videos-recentes;
+}
+
+.secao-videos {
+  grid-area: secao-videos;
+}
+
+.destaque-produtos {
+  grid-area: destaque-produtos;
+}
+
+.produtos-recentes {
+  grid-area: produtos-recentes;
+}
+
+.secao-produtos {
+  grid-area: secao-produtos;
 }
