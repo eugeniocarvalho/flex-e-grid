@@ -1,0 +1,9 @@
+.cartao__imagem--mobile {
+  height: 100%;
+  width: 230%;
+}
+
+.cartao__botao--mapa::before {
+  content: "\e908";
+  font-size: 1.2rem;
+}
